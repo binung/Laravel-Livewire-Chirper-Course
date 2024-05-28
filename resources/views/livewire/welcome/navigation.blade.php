@@ -6,6 +6,9 @@
         >
             Dashboard
         </a>
+        <x-nav-link :href="route('chirps')" :active="request()->routeIs('chirps')" wire:navigate>
+            {{__('Chirps')}}
+        </x-nav-link>
     @else
         <a
             href="{{ route('login') }}"
