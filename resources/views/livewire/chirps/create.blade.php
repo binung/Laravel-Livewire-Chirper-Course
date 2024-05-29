@@ -1,6 +1,7 @@
 <?php
 
 use Livewire\Volt\Component;
+use Livewire\Attributes\Validate;
 
 new class extends Component {
     #[Validate('required|string|max:255')]
@@ -13,6 +14,8 @@ new class extends Component {
         auth()->user()->chirps()->create($validated);
 
         $this->message = '';
+
+        $this->dispatch('chirp-created');
     }
 }; ?>
 
